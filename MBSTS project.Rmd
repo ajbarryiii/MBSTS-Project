@@ -1,0 +1,40 @@
+---
+title: "What is an MBSTS?"
+author: "AJ Barry, Eric Aragundi, Luke Arceneaux"
+date: "2023-4-22"
+output: 
+  pdf_document:
+    latex_engine: pdflatex
+    keep_tex: true
+output: 
+  pdf_document:
+    extra_dependencies:
+      - amsart
+    keep_tex: true
+header-includes:
+  - \usepackage[letterpaper,left=125pt,right=125pt]{geometry}
+  - \usepackage{comment}
+  - \usepackage{float}
+  - \usepackage[english]{babel}
+  - \usepackage{amsmath}
+  - \usepackage{amssymb}
+  - \usepackage{amsfonts}
+  - \usepackage{graphicx}
+  - \usepackage{hyperref}
+  - \hypersetup{colorlinks=true,linkcolor=blue,filecolor=magenta,urlcolor=blue}
+  - \usepackage{listings}
+---
+
+<!-- Your R Markdown content goes here -->
+
+# Abstract
+
+For our project, we implement a Multivariate Bayesian Structural Time Series model to perform one step ahead prediction of the prices of the 10 largest companies in the DJIA and google trends data. The use of a Bayesian approach has several advantages over a traditional model. Firstly, it provides us with a clear-cut method for feature selection of the predictor variables by using spike-slab regression. Additionally, the Bayesian approach yields more interpretable confidence intervals, and a clear method for continuous updating of the model.
+
+# The Model
+
+The Multivariate Bayesian Time Series model represents quite a departure from the models we have discussed in class. Firstly, it is a multivariate model. Secondly, it includes the Kalman filter, which would be a sufficient extension of the work we have done in class on its own.  Thirdly it incorporates a Bayesian methodology to our time series forecasting and feature selection. As such, understanding the model and its various components will require substantial exposition, although we will endeavour to make this as succinct as possible.
+
+## Structural Time Series
+
+We will begin by providing a basic exposition of univariate structural time series. The structural time series model, (also known as a state space model), assumes that the next observation in our time series is dependent on our underlying state space, rather than the previous observation. For instance consider the following model. Let $y_t$ denote our observed time series, and let $\mu_t$ denote the underlying state of the model at time $t$. We can decompose a simple
